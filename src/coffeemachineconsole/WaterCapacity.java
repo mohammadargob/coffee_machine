@@ -5,6 +5,8 @@
  */
 package coffeemachineconsole;
 
+import java.sql.SQLException;
+
 /**
  *
  * @author moham
@@ -12,8 +14,8 @@ package coffeemachineconsole;
 public class WaterCapacity {
      private int level;
     
-    WaterCapacity(){
-        level = 5000;
+    WaterCapacity() throws SQLException, ClassNotFoundException{
+        level = new DBLogger().Water();
     }
     int getLevel(){
         return level;
@@ -25,11 +27,11 @@ public class WaterCapacity {
         level-=amount;
     }
     void fill(){
-        level = 1000;
+        level = 5000;
     }
     boolean findWater(int amount) throws WaterException{
         if (level < amount){
-            throw new WaterException("Your haven;t Beans");
+            throw new WaterException("Your haven;t Water");
         }
         return false;
     }

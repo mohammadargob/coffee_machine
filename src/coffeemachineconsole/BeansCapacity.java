@@ -5,6 +5,8 @@
  */
 package coffeemachineconsole;
 
+import java.sql.SQLException;
+
 /**
  *
  * @author moham
@@ -12,8 +14,8 @@ package coffeemachineconsole;
 public class BeansCapacity {
     private int level;
     
-    BeansCapacity(){
-        level = 1000;
+    BeansCapacity() throws SQLException, ClassNotFoundException{
+        level = new DBLogger().Beans();
     }
     int getLevel(){
         return level;
